@@ -62,6 +62,7 @@ const SearchAppBar = () => {
             alt="Icon Maria's bar"
             width={100}
             height={100}
+            priority
           />
           <Typography
             variant="h6"
