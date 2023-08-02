@@ -16,14 +16,26 @@
 }
 
 .mesa{
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 100%;
   height: 20%;
+}
+
+.mesa input{
+  margin: 10px;
+  text-decoration: none;
+  width: 20%;
+  height: 50%;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .nombre{
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -31,3 +43,12 @@
   height: 20%;
 }
 
+.nombre input {
+  margin: 10px;
+  text-decoration: none;
+  width: 20%;
+  height: 50%;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
