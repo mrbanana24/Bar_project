@@ -12,3 +12,18 @@ connectDB();
 
 // Config CORS
 app.use(cors());
+
+// Routes
+const noteRoutes = require("./routes/cardRoutes");
+app.use("/notes", noteRoutes);
+
+// Error handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "Something went wrong" });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});

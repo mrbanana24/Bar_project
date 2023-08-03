@@ -4,20 +4,22 @@ const { Schema } = mongoose;
 const cardTableSchema = new Schema({
   mesa: {
     type: Number,
-    required: true,
+    required: false,
   },
   nombre: {
     type: String,
-    required: true,
+    required: false,
   },
   fecha: {
     type: Date,
-    required: true,
+    required: false,
   },
   hora: {
     type: Date,
-    required: true,
+    required: false,
   },
 });
 
-module.exports = mongoose.model("CardTable", cardTableSchema);
+const CardTable = mongoose.model("CardTable", cardTableSchema);
+
+module.exports = CardTable;
