@@ -1,7 +1,7 @@
 "use client";
 import CardTable from "../../components/CardTable";
 import { useState, useEffect } from "react";
-import { createCard, getAllCards } from "../../utils/api";
+import { createCard, getAllCards, updateCard } from "../../utils/api";
 
 export default function Home() {
   const [cards, setCards] = useState([]);
@@ -14,7 +14,11 @@ export default function Home() {
     <div>
       <button onClick={() => createCard(cards, setCards)}>Add Card</button>
       {cards.map((card) => (
-        <CardTable key={card._id} />
+        <CardTable
+          cardData={card}
+          key={card._id}
+          onBlur={(data) => updateCard(card._id, data)}
+        />
       ))}
     </div>
   );

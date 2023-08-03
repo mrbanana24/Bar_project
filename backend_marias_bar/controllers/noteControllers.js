@@ -12,8 +12,24 @@ exports.createNewNote = async (req, res, next) => {
 // Get all notes
 exports.getAllNotes = async (req, res, next) => {
   try {
-    console.log("getAllNotesASASD");
     await noteServices.getAllNotes(req, res, next);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Update a note
+exports.updateNote = async (req, res, next) => {
+  const { id } = req.query;
+  const { mesa, nombre, fecha, hora } = req.body;
+  try {
+    console.log("ADASDA");
+    await noteServices.updateNote(id, {
+      mesa,
+      nombre,
+      fecha,
+      hora,
+    });
   } catch (error) {
     next(error);
   }

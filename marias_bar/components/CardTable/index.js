@@ -1,22 +1,19 @@
 "use client";
 import React from "react";
-import { useState } from "react";
 import DataPicker from "../../components/DataPicker";
 import styles from "./CardTable.module.css";
 import BasicTimePicker from "../../components/TimePicker";
+import useNote from "./useCardTable";
 
-const CardTable = () => {
-  const [state, setState] = useState({
-    mesa: "",
-    nombre: "",
-  });
-
-  const handleInput = (e) => {
-    setState({
-      ...state,
-      [e.target.name]: e.target.value,
-    });
-  };
+const CardTable = ({ cardData }) => {
+  const {
+    mesaState,
+    nombreState,
+    handleMesa,
+    handleMesaBlur,
+    handleNombre,
+    handleNombreBlur,
+  } = useNote(cardData);
 
   return (
     <div className={styles.container}>
@@ -25,8 +22,9 @@ const CardTable = () => {
         <input
           type="number"
           name="mesa"
-          value={state.mesa}
-          onChange={(e) => handleInput(e)}
+          value={mesaState}
+          onChange={(e) => handleMesa(e)}
+          onBlur={(e) => handleMesaBlur(cardData._id, e)}
         />
       </div>
       <div className={styles.nombre} placeholder="Reservado a nombre de:">
@@ -34,8 +32,9 @@ const CardTable = () => {
         <input
           type="text"
           name="nombre"
-          value={state.nombre}
-          onChange={(e) => handleInput(e)}
+          value={nombreState}
+          onChange={(e) => handleNombre(e)}
+          onBlur={(e) => handleNombreBlur(cardData._id, e)}
         />
       </div>
       <DataPicker label="Fecha de reserva" />

@@ -29,7 +29,27 @@ const getAllNotes = async (req, res, next) => {
   }
 };
 
+// Update a note
+const updateNote = async (id, data) => {
+  const newData = {};
+  const { mesa, nombre, fecha, hora } = data;
+  if (mesa !== undefined) newData.mesa = mesa;
+  if (nombre !== undefined) newData.nombre = nombre;
+  if (fecha !== undefined) newData.fecha = fecha;
+  if (hora !== undefined) newData.hora = hora;
+
+  try {
+    const updatedNote = await CardTable.findByIdAndUpdate(id, newData, {
+      new: true,
+    });
+    return updatedNote;
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createNewNote,
   getAllNotes,
+  updateNote,
 };
