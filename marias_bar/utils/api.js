@@ -4,6 +4,7 @@ export const createCard = async (cards, setCards) => {
   try {
     const res = await axios.post("http://localhost:8000/notes/newnote");
     if (res.status === 200) {
+      console.log("nota creada:", res.data);
       setCards((prev) => [...prev, res.data]);
     }
   } catch (error) {
