@@ -13,8 +13,8 @@ export const createCard = async (cards, setCards) => {
 
 export const getAllCards = async (setCards) => {
   try {
-    console.log("getAllCards");
-    const res = await axios.get("http://localhost:8000/notes/");
+    const res = await axios.get("http://localhost:8000/notes");
+    console.log("notas obtenidas:", res.data);
     if (res.status === 200) {
       setCards(res.data);
     }

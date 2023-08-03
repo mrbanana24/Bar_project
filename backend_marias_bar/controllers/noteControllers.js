@@ -12,6 +12,7 @@ exports.createNewNote = async (req, res, next) => {
 // Get all notes
 exports.getAllNotes = async (req, res, next) => {
   try {
+    console.log("getAllNotesASASD");
     await noteServices.getAllNotes(req, res, next);
   } catch (error) {
     next(error);
