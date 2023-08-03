@@ -19,6 +19,17 @@ const createNewNote = async (req, res, next) => {
   }
 };
 
+// Get All Notes
+const getAllNotes = async (req, res, next) => {
+  try {
+    const notes = await CardTable.find();
+    res.json(notes);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createNewNote,
+  getAllNotes,
 };

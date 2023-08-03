@@ -5,4 +5,7 @@ const noteController = require("../controllers/noteControllers");
 // Create a new note
 router.post("/newnote", noteController.createNewNote);
 
+// Get all notes
+router.get("/", noteController.getAllNotes);
+
 module.exports = router;
